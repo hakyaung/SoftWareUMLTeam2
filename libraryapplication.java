@@ -15,7 +15,7 @@ public class libraryapplication
     {
     
     }
-    public static void main(String[] args){
-        책DB.대출가능한 책을 검색한다();
+    public 대출 가능한지 검색한다(){
+        
     }
 }
