@@ -1,13 +1,13 @@
-
+import java.util.Treeset;
 /**
- * libraryapplication 클래스의 설명을 작성하세요.
+ * 이용자를 등록하기위한 클래스.
  *
- * @author (작성자 이름)
- * @version (버전 번호 또는 작성한 날짜)
+ * @author (유준석)
+ * @version (20251103)
  */
 public class libraryapplication
 {
-    public 등록한다(이용자 정보)
+    public 등록한다(이용자DB)
     {
     
     }
