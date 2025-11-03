@@ -2,7 +2,7 @@ import java.util.Treeset;
 /**
  * 이용자를 등록하기위한 클래스.
  *
- * @author (유준석)
+ * @author (유준석, 정하경)
  * @version (20251103)
  */
 public class libraryapplication
@@ -16,6 +16,6 @@ public class libraryapplication
     
     }
     public 대출 가능한지 검색한다(){
-        
+         
     }
 }
