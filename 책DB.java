@@ -14,7 +14,7 @@ public class 책DB
         
     }
     
-    public void 대출 가능한 책 정보를 출력한다(){
+    public book 책_객체_하나_가져오기(){
         
     }
 }
