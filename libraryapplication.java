@@ -14,11 +14,14 @@ public class libraryapplication
     public void Display대출 가능한 책(){
         책DB bookDB = new 책DB();
         Boolean 검사결과 = true;
-        Iteration<book> it = 
-        book b_obj = bookDB.책_객체_하나_가져오기();
-        검사결과 = book.책_객체가_대출_가능한지_검사(b_obj);
-        if(검사결과 == true){
-            book.Display_책_정보(b_boj);
+        int obj_n = 책DB.가지고_있는_책_객체_개수_반환하기();
+        
+        for(int i=0;i<obj_n;i++){
+            book b_obj = bookDB.책_객체_하나_가져오기();
+            검사결과 = book.책_객체가_대출_가능한지_검사(b_obj);
+            if(검사결과 == true){
+                book.Display_책_정보(b_boj);
+            }
         }
     }
 }
