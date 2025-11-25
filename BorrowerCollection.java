@@ -5,10 +5,7 @@
  * @author (작성자 이름)
  * @version (버전 번호 또는 작성한 날짜)
  */
-public class 이용자DB
+public class BorrowerCollection
 {
-    public 정렬한다(이용자)
-    {
-        
-    }
+    
 }
