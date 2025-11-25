@@ -7,27 +7,31 @@
  */
 public class LibraryApplication
 {
-    // 인스턴스 변수 - 다음의 예제를 사용자에 맞게 변경하세요.
-    private int x;
-
-    /**
-     * LibraryApplication 클래스의 객체 생성자
-     */
-    public LibraryApplication()
-    {
-        // 인스턴스 변수 초기화
-        x = 0;
+    private BookCollection bookDB = new BookCollection();
+    private BorrowerCollection borrowerDB = new BorrowerCollection();
+    private LoanCollection loanDB = new LoanCollection();
+    
+    public void registerOneBook(String title, String author, String bookUniqueNumber){
+        
     }
-
-    /**
-     * 예제 메소드 - 이 주석을 사용자에 맞게 바꾸십시오
-     *
-     * @param  y  메소드의 샘플 파라미터
-     * @return    x 더하기 y의 결과값을 반환
-     */
-    public int sampleMethod(int y)
-    {
-        // 여기에 코드를 작성하세요.
-        return x + y;
+    
+    public void registerBorrower(String name, String borrowerUniqueNumber, String address){
+        
+    }
+    
+    public void displayBooksForLoan(){
+        
+    }
+    
+    public void displayBooksOnLoan(){
+        
+    }
+    
+    public void loanOneBook(String bookUniqueNUmber, String borrowerUniqueNumber){
+        
+    }
+    
+    public void returnOneBook(String bookUniqueNumber){
+        
     }
 }

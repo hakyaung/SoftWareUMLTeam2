@@ -8,13 +8,13 @@
 public class Borrower
 {
     private String name;
-    private String uniqueNumber;
+    private String borrowerUniqueNumber;
     private int borrowerLoanStatus;
     private String adress;
     
-    public Borrower(String name, String uniqueNumber, String adress){
+    public Borrower(String name, String borrowerUniqueNumber, String adress){
         this.name = name;
-        this.uniqueNumber = uniqueNumber;
+        this.borrowerUniqueNumber = borrowerUniqueNumber;
         this.borrowerLoanStatus = 0;
         this.adress = adress;
     }
@@ -23,7 +23,7 @@ public class Borrower
         
     }
     
-    public String getUniqueNumber(){
+    public String getborrowerUniqueNumber(){
         
     }
     

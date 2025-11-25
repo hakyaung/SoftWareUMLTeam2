@@ -17,7 +17,7 @@ public class BorrowerCollection
         
     }
     
-    public boolean findBorrower(String uniqueNumber){
+    public boolean findBorrower(String borrowerUniqueNumber){
         
     }
 }
