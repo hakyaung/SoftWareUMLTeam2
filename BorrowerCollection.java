@@ -20,4 +20,8 @@ public class BorrowerCollection
     public boolean findBorrower(String borrowerUniqueNumber){
         
     }
+    
+    public Borrower getOneBorrower(String borrowerUniqueNumber){
+        
+    }
 }

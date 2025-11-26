@@ -2,8 +2,8 @@ import java.util.*;
 /**
  * 책DB 클래스의 설명을 작성하세요.
  *
- * @author (정하경)
- * @version (20251103)
+ * @author (유준석, 김민겸, 정하경)
+ * @version (20251126)
  */
 public class BookCollection
 {
@@ -16,6 +16,22 @@ public class BookCollection
     }
     
     public Book getOneBook(){
+        
+    }
+    
+    public Book getOneBook(String bookUniqueNumber){
+        
+    }
+    
+    public boolean findBook(String bookUniqueNumber){
+        
+    }
+    
+    public void registerToBookDB(Book book){
+        
+    }
+    
+    public boolean checkBookLoanAvility(Borrower borrower){
         
     }
 }
