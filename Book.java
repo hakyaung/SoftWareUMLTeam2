@@ -12,11 +12,11 @@ public class Book
     private String bookuniqueNumber;
     private boolean bookLoanStatus;
     
-    public Book(String title, String author, String bookuniqueNumber){
+    public Book(String title, String author, String bookuniqueNumber, boolean bookLoanStatus){
         this.title = title;
         this.author = author;
         this.bookuniqueNumber = bookuniqueNumber;
-        this.bookLoanStatus = false;
+        this.bookLoanStatus = bookLoanStatus;
     }
     
     public String gettitle(){

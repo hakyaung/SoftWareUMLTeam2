@@ -12,10 +12,10 @@ public class Borrower
     private int borrowerLoanStatus;
     private String adress;
     
-    public Borrower(String name, String borrowerUniqueNumber, String adress){
+    public Borrower(String name, String borrowerUniqueNumber, String adress, int borrowerLoanStatus){
         this.name = name;
         this.borrowerUniqueNumber = borrowerUniqueNumber;
-        this.borrowerLoanStatus = 0;
+        this.borrowerLoanStatus = borrowerLoanStatus;
         this.adress = adress;
     }
     

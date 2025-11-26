@@ -17,4 +17,15 @@ public class LoanCollection
         
     }
     
+    public void registerToLoan(Loan loan){
+        
+    }
+    
+    public Loan findLoan(Book book){
+        
+    }
+    
+    public void removeLoan(Loan loan){
+        
+    }
 }
