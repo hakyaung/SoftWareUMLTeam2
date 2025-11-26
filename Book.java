@@ -18,4 +18,28 @@ public class Book
         this.bookuniqueNumber = bookuniqueNumber;
         this.bookLoanStatus = false;
     }
+    
+    public String gettitle(){
+        
+    }
+    
+    public String getauthor(){
+        
+    }
+    
+    public String getbookUniqueNumber(){
+        
+    }
+    
+    public void changeBookLoanStatus(boolean sw){
+        
+    }
+    
+    public boolean checkBookLoanAvility(Book book){
+        
+    }
+    
+    public String toString(){
+        
+    }
 }
