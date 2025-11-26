@@ -20,27 +20,27 @@ public class Borrower
     }
     
     public String getName(){
-        
+        // name 리턴하기
     }
     
     public String getborrowerUniqueNumber(){
-        
+        // borrowerUniqueNumber 리턴하기
     }
     
     public String getAdress(){
-        
+        // adress 리턴하기
     }
     
     public void changeBorrowerLoanStatus(int count){
-        
+        // 파라미터로 받은 값으로 borrowerLoanStatus 값 변경하기
     }
     
     public boolean checkBookLoanAvility(Borrower borrower){
-        
+        // borrowerLoanStatus 값으로 해당 이용자 객체가 대출 가능한지 검사하기
     }
     
     public int getBorrowerLoanStatus(){
-        
+        // borrowerLoanStatus 값 반환하기
     }
     
     public String toString(){

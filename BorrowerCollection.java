@@ -14,14 +14,14 @@ public class BorrowerCollection
     }
     
     public void registerToBorrowerDB(Borrower borrower){
-        
+        // BorrowerCollection에 추가하기
     }
     
     public boolean findBorrower(String borrowerUniqueNumber){
-        
+        // borrowerUniqueNumber 로 Borrower 객체가 있는지 검사하기
     }
     
     public Borrower getOneBorrower(String borrowerUniqueNumber){
-        
+        // borrowerUniqueNumber를 이용해서 Borrower 객체 찾아 반환하기
     }
 }

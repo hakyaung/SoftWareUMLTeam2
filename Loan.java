@@ -16,7 +16,7 @@ public class Loan
     }
     
     public Borrower findBorrower(Loan loan){
-        
+        // 대출 객체를 이용해 Borrower 객체 찾아 반환하기
     }
     
     public String toString(){
