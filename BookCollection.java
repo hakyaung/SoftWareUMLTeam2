@@ -19,7 +19,6 @@ public class BookCollection
         
     }
     
-<<<<<<< HEAD
     public Book getOneBook(String bookUniqueNumber){
         
     }
@@ -35,6 +34,4 @@ public class BookCollection
     public boolean checkBookLoanAvility(Borrower borrower){
         
     }
-=======
->>>>>>> 291be46148cac95e6c2721f65404bf3cc39d4b93
 }
