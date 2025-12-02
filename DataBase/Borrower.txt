@@ -1,0 +1,4 @@
+User1/u01/hk100456@naver.com/1
+User2/u02/hk3523@daum.net/1
+User3/u03/hkaeuh@gmail.com/1
+User4/u04/h123124@gmail.com/0

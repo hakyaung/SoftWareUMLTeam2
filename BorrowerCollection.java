@@ -49,14 +49,13 @@ public class BorrowerCollection
         }
         return false;
     }
-    public String getUniqueNumber(String name) {
-        // 이름이 일치하는 사용자를 모두 저장할 리스트
-        List<Borrower> foundBorrowers = new ArrayList<Borrower>(); 
+    public ArrayList<Borrower> getUniqueNumber(String name) {
+        ArrayList<Borrower> foundBorrowers = new ArrayList<>();
         for (Borrower borrower : borrowerDB) {
             if (borrower.getName().equals(name)) {
                 foundBorrowers.add(borrower);
             }
         }
-        return null;
+        return foundBorrowers;
     }
 }
