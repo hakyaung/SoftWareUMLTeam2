@@ -49,20 +49,13 @@ public class BorrowerCollection
         }
         return false;
     }
-    public String getUniqueNumber(String name) {
-        List<Borrower> foundBorrowers = new ArrayList<>();
+    public ArrayList<Borrower> getUniqueNumber(String name) {
+        ArrayList<Borrower> foundBorrowers = new ArrayList<>();
         for (Borrower borrower : borrowerDB) {
             if (borrower.getName().equals(name)) {
                 foundBorrowers.add(borrower);
             }
         }
-        if (foundBorrowers.isEmpty()) {
-            return "해당 이름의 이용자는 없습니다";
-        } 
-        System.out.println("'" + name + "' 이름의 이용자 목록:");
-        for (Borrower b : foundBorrowers) { 
-            System.out.println("  - 이름: " + b.getName() + ", 고유 번호: " + b.getborrowerUniqueNumber());
-        }
-        return ""
+        return foundBorrowers;
     }
 }
