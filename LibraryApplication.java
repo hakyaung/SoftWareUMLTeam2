@@ -79,7 +79,6 @@ public class LibraryApplication
         return "책 반납 완료";
     }
     
-
     public String getUniqueNumber(String name) {
         // 이용자 고유번호 찾기
         ArrayList<Borrower> foundBorrower = borrowerDB.getUniqueNumber(name);
