@@ -73,8 +73,23 @@ public class LibraryApplication
     }
     
     public String returnOneBook(String bookUniqueNumber){
-        // 책을 반납한다
-        return "책 반납 완료";
+        Book book = bookDB.getOneBook(bookUniqueNumber);
+        
+        if(book == null){
+            return "오류 : 책 고유번호 [" + bookUniqueNumber + "]에 해당하는 책을 찾을 수 없습니다";
+        }
+        
+        Loan loan = loanDB.findLoan(book);
+        
+        if(loan == null){
+            return "오류: [" + book.gettitle() + "]은 현재 대출 중이 아닙니다";
+        }
+        
+        Borrower borrower = loan.getBorrower();
+        loanDB.removeLoan(loan);
+        borrower.decreaseLoanCount();
+        
+        return "SUCCESS: 책 [" + book.gettitle() + "]의 반납이 완료되었습니다. 이용자: " + borrower.getName();
     }
     
     public String getUniqueNumber(String name) {
