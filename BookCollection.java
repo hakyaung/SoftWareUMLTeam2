@@ -16,7 +16,7 @@ public class BookCollection
     }
     
     public void registerToBookDB(Book book){
-        // BookCollection에 추가하기
+        bookDB.put(book.getbookUniqueNumber(),book);
     }
     
     public int getBookSize(){
@@ -28,8 +28,14 @@ public class BookCollection
     }
     
     public Book getOneBook(String bookUniqueNumber){
-        // bookUniqueNumber에 맞는 Book 객체 반환하기
-        
+        Iterator<Book> it = bookDB.iterator();
+        while(it.hasNext()){
+            Book book = it.next();
+            if(bookUniqueNumber.equals(book.getbookUniqueNumber())){
+                return book;
+            }
+        }
+        return null;
     }
     
     public boolean findBook(String bookUniqueNumber){
