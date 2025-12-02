@@ -17,8 +17,10 @@ public class LoanCollection
         // loanDB에 있는 Loan 객체 반환하기 
     }
     
-    public void registerToLoan(Loan loan){
+    public String registerToLoan(Loan loan){
         // loanDB에 요소 추가하기
+        loanDB.add(loan);
+        return loan + " 대출이 완료되었습니다.";
     }
     
     public Loan findLoan(Book book){
@@ -35,6 +37,18 @@ public class LoanCollection
         while(it.hasNext()){
             Loan lo = it.next();
             if(lo.getBook().equals(book)){
+                return true;
+            }
+        }
+        return false;
+    }
+    
+    public boolean checkBorrowerOnLoan(Borrower borrower){
+        // borrower 객체가 대출 중인지 검사 후 결과값 반환하기
+        Iterator<Loan> it = loanDB.iterator();
+        while(it.hasNext()){
+            Loan lo = it.next();
+            if(lo.getBorrower().equals(borrower)){
                 return true;
             }
         }

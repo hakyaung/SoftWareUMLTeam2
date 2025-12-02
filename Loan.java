@@ -23,4 +23,8 @@ public class Loan
     public Book getBook(){
         return book;
     }
+    
+    public Borrower getBorrower(){
+        return borrower;
+    }
 }

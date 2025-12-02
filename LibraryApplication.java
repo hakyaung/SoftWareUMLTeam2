@@ -42,8 +42,27 @@ public class LibraryApplication
         // 대출 중인 책을 Display 한다
     }
     
-    public String loanOneBook(String bookUniqueNUmber, String borrowerUniqueNumber){
+    public String loanOneBook(String bookUniqueNumber, String borrowerUniqueNumber){
         // 책을 대출한다
+        Borrower borrower = borrowerDB.getOneBorrower(borrowerUniqueNumber);
+        if(borrower.equals(null)){
+            return "이용자 정보가 없습니다.";
+        }else{
+            Book book = bookDB.getOneBook(bookUniqueNumber);
+            if(book.equals(null)){
+                return "책 정보가 없습니다.";
+            }else{
+                boolean borrowerbl = loanDB.checkBorrowerOnLoan(borrower);
+                boolean bookbl = loanDB.checkBookOnLoan(book);
+                if(borrowerbl == bookbl){
+                    return "이용자와 책 중 하나가 대출 중입니다.";
+                }else{
+                    Loan loan = new Loan(borrower,book);
+                    String str = loanDB.registerToLoan(loan);
+                    return str;
+                }
+            }
+        }
     }
     
     public String returnOneBook(String bookUniqueNumber){
