@@ -9,20 +9,21 @@ public class BookCollection
 {
     private TreeSet<String> uniqueNumberSet;
     private HashMap<String, Book> bookDB;
-    
     public BookCollection(){
-        this.uniqueNumberSet = new TreeSet<String>();
-        this.bookDB = new HashMap<String, Book>();
+        uniqueNumberSet = new TreeSet<String>();
+        bookDB = new HashMap<String, Book>();
     }
     
     public void registerToBookDB(Book book){
-        bookDB.put(book.getbookUniqueNumber(),book);
+        bookDB.put(book.getbookUniqueNumber(), book);
+        uniqueNumberSet.add(book.getbookUniqueNumber());
     }
     
     public int getBookSize(){
         return uniqueNumberSet.size();
     }
     
+<<<<<<< HEAD
     public Book getOneBook(int index){
         // index에 맞는 책 객체 반환
         ArrayList<String> 
@@ -35,11 +36,25 @@ public class BookCollection
             if(bookUniqueNumber.equals(book.getbookUniqueNumber())){
                 return book;
             }
+=======
+    public Book getOneBook(int index) {
+        if(index < 0 || index >= uniqueNumberSet.size())
+        return null;
+        int i = 0;
+        for(String key : uniqueNumberSet) {
+            if(i == index) 
+            return bookDB.get(key);
+            i++;
+>>>>>>> 9190b458199ecd942ed1b0bc6e4eb883f9ed61ee
         }
         return null;
     }
     
+    public Book getOneBook(String bookUniqueNumber){
+        return bookDB.get(bookUniqueNumber);
+    }
+    
     public boolean findBook(String bookUniqueNumber){
-        // bookUniqueNumber에 맞는 Book 객체 있는지 확인하기
+        return bookDB.containsKey(bookUniqueNumber);
     }
 }
