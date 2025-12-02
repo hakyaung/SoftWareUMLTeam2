@@ -11,6 +11,7 @@ public class Borrower
     private String borrowerUniqueNumber;
     private String email;
     private int loanCount;
+    
     public Borrower(String name, String borrowerUniqueNumber, String email){
         this.name = name;
         this.borrowerUniqueNumber = borrowerUniqueNumber;
@@ -38,6 +39,9 @@ public class Borrower
     }
     public int loanCount(){
         return loanCount;
+    }
+    public void increaseLoanCount(){
+    this.loanCount++;
     }
     public String displayBorrower(){
         return "이용자 이름 : " + name + " 이용자 고유번호 : " + borrowerUniqueNumber + " 집주소 : " + email;
