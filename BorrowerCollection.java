@@ -44,15 +44,14 @@ public class BorrowerCollection
     public boolean findBorrowerByName(String name) {
         for (Borrower borrower : borrowerDB) {
             if (borrower.getName().equals(name)) {
-                return true; // 이름이 일치하는 사용자를 찾으면 즉시 true 반환
+                return true;
             }
         }
-        return false; // 찾지 못하면 false 반환
+        return false;
     }
     public String getUniqueNumber(String name) {
         // 이름이 일치하는 사용자를 모두 저장할 리스트
-        List<Borrower> foundBorrowers = new ArrayList<>(); 
-        
+        List<Borrower> foundBorrowers = new ArrayList<Borrower>(); 
         for (Borrower borrower : borrowerDB) {
             if (borrower.getName().equals(name)) {
                 foundBorrowers.add(borrower);

@@ -13,9 +13,9 @@ public class Book
     
     
     public Book(String title, String author, String bookuniqueNumber){
-        this.title = title;
-        this.author = author;
-        this.bookuniqueNumber = bookuniqueNumber;
+        title = title;
+        author = author;
+        bookuniqueNumber = bookuniqueNumber;
     }
     
     public String gettitle(){
