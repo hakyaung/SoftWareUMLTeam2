@@ -15,6 +15,7 @@ public class Borrower
         this.name = name;
         this.borrowerUniqueNumber = borrowerUniqueNumber;
         this.email = email;
+        this.loanCount = loanCount;
     }
     
     public String getName(){
