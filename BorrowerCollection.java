@@ -57,5 +57,6 @@ public class BorrowerCollection
                 foundBorrowers.add(borrower);
             }
         }
+        return null;
     }
 }
