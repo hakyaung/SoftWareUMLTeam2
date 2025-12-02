@@ -15,8 +15,8 @@ public class BookCollection
     }
     
     public void registerToBookDB(Book book){
-        bookDB.put(book.getbookUniqueNumber(), book);
         uniqueNumberSet.add(book.getbookUniqueNumber());
+        bookDB.put(book.getbookUniqueNumber(), book);
     }
     
     public int getBookSize(){

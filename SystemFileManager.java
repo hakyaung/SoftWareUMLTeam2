@@ -60,7 +60,8 @@ public class SystemFileManager
                 Borrower borrower = borrowerdb.getOneBorrower(borrowerUniqueNumber);
                 Book book = bookdb.getOneBook(bookUniqueNumber);
                 Loan loan = new Loan(borrower, book);
-                System.out.println(loandb.registerToLoan(loan));
+                loandb.registerToLoan(loan);
+                System.out.println(loan.displayLoan());
             }
             
             borrowerSrc.close();
