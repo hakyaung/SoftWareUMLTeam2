@@ -67,8 +67,8 @@ public class LibraryApplication
              return "오류: 이용자 " + borrower.getName() + "님은 대출 한도(10권)를 초과했습니다. (현재: " + borrower.loanCount() + "권)";
         }
         Loan loan = new Loan(borrower, book);
-        loanDB.registerToLoan(loan);
-        borrower.increaseLoanCount();
+        loanDB.registerToLoan(loan);       
+        borrower.increaseLoanCount();    
         return "SUCCESS: 책 " + book.gettitle() + "의 대출이 완료되었습니다. 대출자: " + borrower.getName();
     }
     
