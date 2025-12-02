@@ -15,19 +15,22 @@ public class BookCollection
         this.bookDB = new HashMap<String, Book>();
     }
     
-    public Book getOneBook(){
-        // BookCollection에 있는 Book 객체 반환하기
+    public void registerToBookDB(Book book){
+        bookDB.put(book.getbookUniqueNumber(),book);
     }
     
     public Book getOneBook(String bookUniqueNumber){
-        // bookUniqueNumber에 맞는 Book 객체 반환하기
+        Iterator<Book> it = bookDB.iterator();
+        while(it.hasNext()){
+            Book book = it.next();
+            if(bookUniqueNumber.equals(book.getbookUniqueNumber())){
+                return book;
+            }
+        }
+        return null;
     }
     
     public boolean findBook(String bookUniqueNumber){
         // bookUniqueNumber에 맞는 Book 객체 있는지 확인하기
-    }
-    
-    public void registerToBookDB(Book book){
-        // BookCollection에 추가하기
     }
 }

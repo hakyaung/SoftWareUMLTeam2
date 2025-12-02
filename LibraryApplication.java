@@ -11,27 +11,35 @@ public class LibraryApplication
     private BorrowerCollection borrowerDB = new BorrowerCollection();
     private LoanCollection loanDB = new LoanCollection();
     
-    public void registerOneBook(String title, String author, String bookUniqueNumber){
+    public String registerOneBook(String title, String author, String bookUniqueNumber){
         // 책을 등록한다
+        Book book = new Book(title, author, bookUniqueNumber);
+        bookDB.registerToBookDB(book);
+        
+        return "책 등록이 완료되었습니다.";
     }
     
-    public void registerBorrower(String name, String borrowerUniqueNumber, String address){
+    public String registerBorrower(String name, String borrowerUniqueNumber, String email){
         // 이용자를 등록한다
+        Borrower borrower = new Borrower(name, borrowerUniqueNumber, email);
+        borrowerDB.registerToBorrowerDB(borrower);
+        
+        return "이용자 등록이 완료되었습니다.";
     }
     
-    public void displayBooksForLoan(){
+    public String displayBooksForLoan(){
         // 대출가능한 책을 Display 한다
     }
     
-    public void displayBooksOnLoan(){
+    public String displayBooksOnLoan(){
         // 대출 중인 책을 Display 한다
     }
     
-    public void loanOneBook(String bookUniqueNUmber, String borrowerUniqueNumber){
+    public String loanOneBook(String bookUniqueNUmber, String borrowerUniqueNumber){
         // 책을 대출한다
     }
     
-    public void returnOneBook(String bookUniqueNumber){
+    public String returnOneBook(String bookUniqueNumber){
         // 책을 반납한다
     }
 }
