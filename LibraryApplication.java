@@ -48,6 +48,9 @@ public class LibraryApplication
     
     public String returnOneBook(String bookUniqueNumber){
         // 책을 반납한다
-        
+    }
+    
+    public String getUniqueNumber(String name){
+        //고유번호를 얻는다.
     }
 }
