@@ -57,6 +57,12 @@ public class TestMain
                     la.returnOneBook(bkUni);
                     break;
                 case 7:
+                    System.out.println("이용자 고유번호 찾기");
+                    System.out.print("찾을 이용자 이름 : ");
+                    String findName = sc.next();
+                    la.getUniqueNumber(findName);
+                    break;
+                case 8:
                     System.out.println("데이터 불러오기 선택");
                     la.startupFileRead();
                     break;
@@ -75,7 +81,9 @@ public class TestMain
         System.out.println("4. 대출 중인 책을 Display한다");
         System.out.println("5. 책을 대출한다");
         System.out.println("6. 책을 반납한다");
-        System.out.println("7. 데이터 불러오기");
+        System.out.println("7. 이용자 고유번호 찾기");
+        System.out.println("8. 데이터 불러오기");
+        System.out.println("9. 데이터 저장하기");  
         System.out.println("0. 종료하기");
         System.out.print("번호를 입력해주세요 : ");
     }

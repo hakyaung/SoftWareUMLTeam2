@@ -87,33 +87,23 @@ public class LibraryApplication
         if (foundBorrower.isEmpty()) {
             return "'" + name + "' 해당 이름의 정보가 없습니다.";
         } else {
-        Iterator<Borrower> it = foundBorrower.iterator();
-        while (it.hasNext()) {
-            Borrower borrowerInfo = it.next();
-            System.out.println("---");
-            System.out.println("이름: " + borrowerInfo.getName());
-            System.out.println("고유 번호: " + borrowerInfo.getborrowerUniqueNumber());
-            System.out.println("이메일 (주소): " + borrowerInfo.getEmail());
-            System.out.println("---");
-        }
+            Iterator<Borrower> it = foundBorrower.iterator();
+            while (it.hasNext()) {
+                Borrower borrowerInfo = it.next();
+                System.out.println("---");
+                System.out.println("이름: " + borrowerInfo.getName());
+                System.out.println("고유 번호: " + borrowerInfo.getborrowerUniqueNumber());
+                System.out.println("이메일 (주소): " + borrowerInfo.getEmail());
+                System.out.println("---");
+            }
         }
         return "이용자 출력 완료";
     }
-
-    public String startupFileRead() {
-
-    }
     
     public String startupFileRead(){
-
         // 파일들을 불러 온 후 각 객체를 생성, DB에 저장한다
 
         systemFileMg.startupFileRead("DataBase\\Borrower.txt", "DataBase\\Book.txt", "DataBase\\Loan.txt");
-
-        systemFileMg.startupFileRead("DataBase\\Borrower.txt","DataBase\\Book.txt","DataBase\\Loan.txt");
-
-
-        systemFileMg.startupFileRead("DataBase\\Borrower.txt","DataBase\\Book.txt","DataBase\\Loan.txt");
 
         return "파일 읽기 완료";
     }

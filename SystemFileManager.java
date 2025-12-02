@@ -38,6 +38,7 @@ public class SystemFileManager
                 int loanCount = Integer.valueOf(stz.nextToken());
                 Borrower borrower = new Borrower(name, borrowerUniqueNumber, email, loanCount);
                 borrowerdb.registerToBorrowerDB(borrower);
+                System.out.println(borrower.displayBorrower());
             }
             
             while(bookScanner.hasNext()){
@@ -48,6 +49,7 @@ public class SystemFileManager
                 String bookUniqueNumber = stz.nextToken();
                 Book book = new Book(title, author, bookUniqueNumber);
                 bookdb.registerToBookDB(book);
+                System.out.println(book.displayBook());
             }
             
             while(loanScanner.hasNext()){
