@@ -40,6 +40,7 @@ public class LibraryApplication
     
     public String displayBooksOnLoan(){
         // 대출 중인 책을 Display 한다
+        
     }
     
     public String loanOneBook(String bookUniqueNumber, String borrowerUniqueNumber){
@@ -69,7 +70,11 @@ public class LibraryApplication
         // 책을 반납한다
     }
     
-    public String getUniqueNumber(String name){
-        //고유번호를 얻는다.
+    public String startupFileRead(){
+        // 파일들을 불러 온 후 각 객체를 생성, DB에 저장한다
+    }
+    
+    public String saveFileWrite(){
+        // DB에 있는 객체들을 파일에 저장한다
     }
 }

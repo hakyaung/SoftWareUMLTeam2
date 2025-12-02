@@ -28,6 +28,7 @@ public class SystemFileManager
             Scanner borrowerScanner = new Scanner(borrowerSrc);
             Scanner bookScanner = new Scanner(bookSrc);
             Scanner loanScanner = new Scanner(loanSrc);
+            
             while(borrowerScanner.hasNext()){
                 str = borrowerScanner.nextLine();
                 StringTokenizer stz = new StringTokenizer(str, "/");
@@ -59,6 +60,7 @@ public class SystemFileManager
                 Loan loan = new Loan(borrower, book);
                 System.out.println(loandb.registerToLoan(loan));
             }
+            
             borrowerSrc.close();
             bookSrc.close();
             loanSrc.close();
