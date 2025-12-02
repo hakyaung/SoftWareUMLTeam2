@@ -19,4 +19,8 @@ public class Loan
         // 대출 객체를 이용해 Borrower 객체 찾아 반환하기
         return borrower;
     }
+    
+    public Book getBook(){
+        return book;
+    }
 }

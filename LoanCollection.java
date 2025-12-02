@@ -28,4 +28,16 @@ public class LoanCollection
     public void removeLoan(Loan loan){
         // loanDB에 있는 요소 삭제하기
     }
+    
+    public boolean checkBookOnLoan(Book book){
+        // book 객체가 대출 중인지 검사 후 결과값 반환하기
+        Iterator<Loan> it = loanDB.iterator();
+        while(it.hasNext()){
+            Loan lo = it.next();
+            if(lo.getBook().equals(book)){
+                return true;
+            }
+        }
+        return false;
+    }
 }

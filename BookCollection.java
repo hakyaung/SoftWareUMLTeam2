@@ -24,7 +24,8 @@ public class BookCollection
     }
     
     public Book getOneBook(int index){
-        uniqueNumberSet.
+        // index에 맞는 책 객체 반환
+        ArrayList<String> 
     }
     
     public Book getOneBook(String bookUniqueNumber){

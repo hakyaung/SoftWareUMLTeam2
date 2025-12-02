@@ -16,7 +16,7 @@ public class LibraryApplication
         Book book = new Book(title, author, bookUniqueNumber);
         bookDB.registerToBookDB(book);
         
-        return "책 등록이 완료되었습니다.";
+        return "책 " + book + " 등록이 완료되었습니다.";
     }
     
     public String registerBorrower(String name, String borrowerUniqueNumber, String email){
@@ -24,7 +24,7 @@ public class LibraryApplication
         Borrower borrower = new Borrower(name, borrowerUniqueNumber, email);
         borrowerDB.registerToBorrowerDB(borrower);
         
-        return "이용자 등록이 완료되었습니다.";
+        return "이용자 " + borrower + " 등록이 완료되었습니다.";
     }
     
     public String displayBooksForLoan(){
@@ -32,7 +32,9 @@ public class LibraryApplication
         int index = bookDB.getBookSize();
         for(int i=0;i<index;i++){
             Book b = bookDB.getOneBook(i);
-            
+            if(loanDB.checkBookOnLoan(b) == false){
+                return "대출 가능한 책" + b.displayBook();
+            }
         }
     }
     
