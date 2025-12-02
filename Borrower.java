@@ -15,7 +15,6 @@ public class Borrower
         this.name = name;
         this.borrowerUniqueNumber = borrowerUniqueNumber;
         this.email = email;
-        this.loanCount = 0;
     }
     
     public Borrower(String name, String borrowerUniqueNumber, String email, int loanCount){
@@ -23,7 +22,6 @@ public class Borrower
         this.borrowerUniqueNumber = borrowerUniqueNumber;
         this.email = email;
         this.loanCount = loanCount;
-        loanCount = 0;
     }
     
     public String getName(){
