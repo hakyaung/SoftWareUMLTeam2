@@ -37,7 +37,7 @@ public class LoanCollection
     }
     
     public void removeLoan(Loan loan){
-        // loanDB에 있는 요소 삭제하기
+        loanDB.remove(loan);
     }
     
     public boolean checkBookOnLoan(Book book){

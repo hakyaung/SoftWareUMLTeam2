@@ -43,6 +43,11 @@ public class Borrower
     public void increaseLoanCount(){
         this.loanCount++;
     }
+    public void decreaseLoanCount(){
+        if(this.loanCount > 0){
+            this.loanCount--;
+        }
+    }
     public String displayBorrower(){
         return "이용자 이름 : " + name + " 이용자 고유번호 : " + borrowerUniqueNumber + " 이메일 주소 : " + email;
     }
