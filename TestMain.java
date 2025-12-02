@@ -25,15 +25,23 @@ public class TestMain
                     return;
                 case 1:
                     System.out.println("책 등록하기 선택 ");
-                    String title = sc.next();
-                    String author = sc.next();
+                    sc.nextLine();
+                    System.out.print("책 제목 : ");
+                    String title = sc.nextLine();
+                    System.out.print("책 저자 : ");
+                    String author = sc.nextLine();
+                    System.out.print("책 고유번호 : ");
                     String bookUniqueNumber = sc.next();
                     la.registerOneBook(title, author, bookUniqueNumber);
                     break;
                 case 2:
                     System.out.println("이용자 등록하기 선택");
-                    String name = sc.next();
+                    sc.nextLine();
+                    System.out.print("이용자 이름 : ");
+                    String name = sc.nextLine();
+                    System.out.print("이용자 고유번호 : ");
                     String borrowerUniqueNumber = sc.next();
+                    System.out.print("이용자 Email : ");
                     String email = sc.next();
                     la.registerBorrower(name, borrowerUniqueNumber, email);
                     break;
@@ -47,7 +55,9 @@ public class TestMain
                     break;
                 case 5:
                     System.out.println("책을 대출한다 선택");
+                    System.out.print("대출 진행할 책 고유번호 : ");
                     String bookUni = sc.next();
+                    System.out.print("대출 진행할 이용자 고유번호 : ");
                     String borrowerUni = sc.next();
                     la.loanOneBook(bookUni, borrowerUni);
                     break;
@@ -58,8 +68,9 @@ public class TestMain
                     break;
                 case 7:
                     System.out.println("이용자 고유번호 찾기");
+                    sc.nextLine();
                     System.out.print("찾을 이용자 이름 : ");
-                    String findName = sc.next();
+                    String findName = sc.nextLine();
                     la.getUniqueNumber(findName);
                     break;
                 case 8:
