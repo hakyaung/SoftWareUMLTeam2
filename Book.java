@@ -20,7 +20,7 @@ public class Book
     }
     
     public String gettitle(){
-        // title 리턴하기
+        
     }
     
     public String getauthor(){
