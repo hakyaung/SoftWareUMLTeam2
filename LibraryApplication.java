@@ -10,6 +10,7 @@ public class LibraryApplication
     private BookCollection bookDB = new BookCollection();
     private BorrowerCollection borrowerDB = new BorrowerCollection();
     private LoanCollection loanDB = new LoanCollection();
+    SystemFileManager systemFileMg = new SystemFileManager();
     
     public String registerOneBook(String title, String author, String bookUniqueNumber){
         // 책을 등록한다
@@ -73,6 +74,11 @@ public class LibraryApplication
         return "SUCCESS: 책 " + book.gettitle() + "의 대출이 완료되었습니다. 대출자: " + borrower.getName();
     }
     
+    public String returnOneBook(String bookUniqueNumber){
+        // 책을 반납한다
+        return "책 반납 완료";
+    }
+    
     public String imsi(String name){
         ArrayList<Borrower> al = borrowerDB.getUniqueNumber(name);
         if(al.equals(null)){
@@ -86,13 +92,9 @@ public class LibraryApplication
         return "이용자 출력 완료";
     }
     
-    public String returnOneBook(String bookUniqueNumber){
-        // 책을 반납한다
-        return "책 반납 완료";
-    }
-    
     public String startupFileRead(){
         // 파일들을 불러 온 후 각 객체를 생성, DB에 저장한다
+        systemFileMg.startupFileRead("DataBase\\Borrower.txt","DataBase\\Book.txt","DataBase\\Loan.txt");
         return "파일 읽기 완료";
     }
     

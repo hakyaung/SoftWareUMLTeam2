@@ -4,7 +4,7 @@ import java.util.*;
  */
 public class TestMain
 {
-    LibraryApplication la = LibraryApplication();
+    LibraryApplication la = new LibraryApplication();
     
     public static void main(String[] args){
         TestMain tm = new TestMain();
@@ -25,11 +25,17 @@ public class TestMain
                     return;
                 case 1:
                     System.out.println("책 등록하기 선택 ");
-                    la.registerOneBook();
+                    String title = sc.next();
+                    String author = sc.next();
+                    String bookUniqueNumber = sc.next();
+                    la.registerOneBook(title, author, bookUniqueNumber);
                     break;
                 case 2:
                     System.out.println("이용자 등록하기 선택");
-                    la.registerBorrower();
+                    String name = sc.next();
+                    String borrowerUniqueNumber = sc.next();
+                    String email = sc.next();
+                    la.registerBorrower(name, borrowerUniqueNumber, email);
                     break;
                 case 3:
                     System.out.println("대출 가능한 책을 Display 선택");
@@ -41,15 +47,18 @@ public class TestMain
                     break;
                 case 5:
                     System.out.println("책을 대출한다 선택");
-                    la.loanOneBook();
+                    String bookUni = sc.next();
+                    String borrowerUni = sc.next();
+                    la.loanOneBook(bookUni, borrowerUni);
                     break;
                 case 6:
                     System.out.println("책을 반납한다 선택");
-                    la.returnOneBook();
+                    String bkUni = sc.next();
+                    la.returnOneBook(bkUni);
                     break;
                 case 7:
                     System.out.println("데이터 불러오기 선택");
-                    la.bringDataFile();
+                    la.startupFileRead();
                     break;
                 default:
                     System.out.println("올바른 번호를 입력해주세요");
