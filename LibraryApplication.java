@@ -73,22 +73,28 @@ public class LibraryApplication
         return "SUCCESS: 책 " + book.gettitle() + "의 대출이 완료되었습니다. 대출자: " + borrower.getName();
     }
     
-    public String imsi(String name){
-        ArrayList<Borrower> al = borrowerDB.getUniqueNumber(name);
-        if(al.equals(null)){
-            return "이용자 정보가 없습니다.";
-        }else{
-            Iterator<Borrower> it = al.iterator();
-            while(it.hasNext()){
-                System.out.println(it.next());
-            }
-        }
-        return "이용자 출력 완료";
-    }
-    
     public String returnOneBook(String bookUniqueNumber){
         // 책을 반납한다
         return "책 반납 완료";
+    }
+    
+    public String getUniqueNumber(String name){
+        //이용자 고유번호 찾기
+        ArrayList<Borrower> al = borrowerDB.getUniqueNumber(name);
+        if(al.isEmpty()){
+            return "'"+ name+ "' 해당 이름의 정보가 없습니다.";
+        }else{
+            Iterator<Borrower> it = al.iterator();
+            while(it.hasNext()){
+                Borrower borrowerInfo = it.next();
+                System.out.println("---");
+                System.out.println("이름: " + borrowerInfo.getName());
+                System.out.println("고유 번호: " + borrowerInfo.getborrowerUniqueNumber());
+                System.out.println("이메일 (주소): " + borrowerInfo.getEmail());
+                System.out.println("---");
+            }
+        }
+        return "이용자 출력 완료";
     }
     
     public String startupFileRead(){

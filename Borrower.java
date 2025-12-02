@@ -44,6 +44,6 @@ public class Borrower
         this.loanCount++;
     }
     public String displayBorrower(){
-        return "이용자 이름 : " + name + " 이용자 고유번호 : " + borrowerUniqueNumber + " 집주소 : " + email;
+        return "이용자 이름 : " + name + " 이용자 고유번호 : " + borrowerUniqueNumber + " 이메일 주소 : " + email;
     }
 }
