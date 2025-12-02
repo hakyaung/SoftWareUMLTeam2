@@ -29,6 +29,11 @@ public class LibraryApplication
     
     public String displayBooksForLoan(){
         // 대출가능한 책을 Display 한다
+        int index = bookDB.getBookSize();
+        for(int i=0;i<index;i++){
+            Book b = bookDB.getOneBook(i);
+            
+        }
     }
     
     public String displayBooksOnLoan(){

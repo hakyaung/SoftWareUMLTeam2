@@ -19,6 +19,14 @@ public class BookCollection
         // BookCollection에 추가하기
     }
     
+    public int getBookSize(){
+        return uniqueNumberSet.size();
+    }
+    
+    public Book getOneBook(int index){
+        uniqueNumberSet.
+    }
+    
     public Book getOneBook(String bookUniqueNumber){
         // bookUniqueNumber에 맞는 Book 객체 반환하기
         
