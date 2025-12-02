@@ -50,13 +50,19 @@ public class BorrowerCollection
         return false;
     }
     public String getUniqueNumber(String name) {
-        // 이름이 일치하는 사용자를 모두 저장할 리스트
-        List<Borrower> foundBorrowers = new ArrayList<Borrower>(); 
+        List<Borrower> foundBorrowers = new ArrayList<>();
         for (Borrower borrower : borrowerDB) {
             if (borrower.getName().equals(name)) {
                 foundBorrowers.add(borrower);
             }
         }
-        return null;
+        if (foundBorrowers.isEmpty()) {
+            return "해당 이름의 이용자는 없습니다";
+        } 
+        System.out.println("'" + name + "' 이름의 이용자 목록:");
+        for (Borrower b : foundBorrowers) { 
+            System.out.println("  - 이름: " + b.getName() + ", 고유 번호: " + b.getborrowerUniqueNumber());
+        }
+        return ""
     }
 }
