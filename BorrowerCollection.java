@@ -14,14 +14,30 @@ public class BorrowerCollection
     }
     
     public void registerToBorrowerDB(Borrower borrower){
-        // BorrowerCollection에 추가하기
+        borrowerDB.add(borrower);
     }
     
     public boolean findBorrower(String borrowerUniqueNumber){
         // borrowerUniqueNumber 로 Borrower 객체가 있는지 검사하기
+        Iterator<Borrower> it = borrowerDB.iterator();
+        while(it.hasNext()){
+            String uniNum = it.next().getborrowerUniqueNumber();
+            if(borrowerUniqueNumber.equals(uniNum)){
+                return true;
+            }
+        }
+        return false;
     }
     
     public Borrower getOneBorrower(String borrowerUniqueNumber){
         // borrowerUniqueNumber를 이용해서 Borrower 객체 찾아 반환하기
+        Iterator<Borrower> it = borrowerDB.iterator();
+        while(it.hasNext()){
+            Borrower br = it.next();
+            if(borrowerUniqueNumber.equals(br.getborrowerUniqueNumber())){
+                return br;
+            }
+        }
+        return null;
     }
 }

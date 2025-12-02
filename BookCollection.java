@@ -15,19 +15,16 @@ public class BookCollection
         this.bookDB = new HashMap<String, Book>();
     }
     
-    public Book getOneBook(){
-        // BookCollection에 있는 Book 객체 반환하기
+    public void registerToBookDB(Book book){
+        // BookCollection에 추가하기
     }
     
     public Book getOneBook(String bookUniqueNumber){
         // bookUniqueNumber에 맞는 Book 객체 반환하기
+        
     }
     
     public boolean findBook(String bookUniqueNumber){
         // bookUniqueNumber에 맞는 Book 객체 있는지 확인하기
-    }
-    
-    public void registerToBookDB(Book book){
-        // BookCollection에 추가하기
     }
 }
