@@ -13,8 +13,9 @@ public class LoanCollection
         this.loanDB = new LinkedList<Loan>();
     }
     
-    public Loan getOneLoan(){
+    public Loan getOneLoan(int index){
         // loanDB에 있는 Loan 객체 반환하기 
+        return loanDB.get(index);
     }
     
     public String registerToLoan(Loan loan){
@@ -25,6 +26,14 @@ public class LoanCollection
     
     public Loan findLoan(Book book){
         // Book 객체를 가지고 Loan객체를 찾아 반환하기
+        Iterator<Loan> it = loanDB.iterator();
+        while(it.hasNext()){
+            Loan lo = it.next();
+            if(lo.getBook().equals(book)){
+                return lo;
+            }
+        }
+        return null;
     }
     
     public void removeLoan(Loan loan){
@@ -53,5 +62,9 @@ public class LoanCollection
             }
         }
         return false;
+    }
+    
+    public int getLoanSize(){
+        return loanDB.size();
     }
 }

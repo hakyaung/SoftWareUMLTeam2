@@ -33,15 +33,21 @@ public class LibraryApplication
         for(int i=0;i<index;i++){
             Book b = bookDB.getOneBook(i);
             if(loanDB.checkBookOnLoan(b) == false){
-                return "대출 가능한 책" + b.displayBook();
+                System.out.println(b.displayBook());
             }
         }
+        return "대출 가능한 책 Display 완료";
     }
     
     public String displayBooksOnLoan(){
         // 대출 중인 책을 Display 한다
         int size = loanDB.getLoanSize();
-        
+        for(int i=0;i<size;i++){
+            Loan lo = loanDB.getOneLoan(i);
+            Book book = lo.getBook();
+            System.out.println(book.displayBook());
+        }
+        return "대출 중인 책 Display 완료";
     }
     
     public String loanOneBook(String bookUniqueNumber, String borrowerUniqueNumber){
@@ -82,13 +88,16 @@ public class LibraryApplication
     
     public String returnOneBook(String bookUniqueNumber){
         // 책을 반납한다
+        return "책 반납 완료";
     }
     
     public String startupFileRead(){
         // 파일들을 불러 온 후 각 객체를 생성, DB에 저장한다
+        return "파일 읽기 완료";
     }
     
     public String saveFileWrite(){
         // DB에 있는 객체들을 파일에 저장한다
+        return "파일 저장 완료";
     }
 }
