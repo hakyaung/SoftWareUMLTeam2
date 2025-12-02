@@ -54,4 +54,8 @@ public class BookCollection
     public boolean findBook(String bookUniqueNumber){
         return bookDB.containsKey(bookUniqueNumber);
     }
+    
+    public boolean findBook(String bookUniqueNumber){
+        return bookDB.containsKey(bookUniqueNumber);
+    }
 }
