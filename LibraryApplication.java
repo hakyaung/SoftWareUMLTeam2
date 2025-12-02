@@ -98,11 +98,18 @@ public class LibraryApplication
         }
         return "이용자 출력 완료";
     }
+<<<<<<< HEAD
     
+=======
+>>>>>>> 808ae347a6882baa08cd50b7f9229f6ffdf084bc
     public String startupFileRead(){
         // 파일들을 불러 온 후 각 객체를 생성, DB에 저장한다
 
+<<<<<<< HEAD
         systemFileMg.startupFileRead("DataBase\\Borrower.txt", "DataBase\\Book.txt", "DataBase\\Loan.txt");
+=======
+        systemFileMg.startupFileRead("DataBase\\Borrower.txt","DataBase\\Book.txt","DataBase\\Loan.txt");
+>>>>>>> 808ae347a6882baa08cd50b7f9229f6ffdf084bc
 
         return "파일 읽기 완료";
     }
