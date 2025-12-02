@@ -40,7 +40,14 @@ public class BookCollection
     public Book getOneBook(String bookUniqueNumber){
         return bookDB.get(bookUniqueNumber);
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+    }
+    
+    public boolean findBook(String bookUniqueNumber){
+        return bookDB.containsKey(bookUniqueNumber);
+>>>>>>> 9190b458199ecd942ed1b0bc6e4eb883f9ed61ee
     }
     
     public boolean findBook(String bookUniqueNumber){
