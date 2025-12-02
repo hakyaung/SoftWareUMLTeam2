@@ -80,7 +80,6 @@ public class LibraryApplication
     }
     
 
-
     public String getUniqueNumber(String name) {
         // 이용자 고유번호 찾기
         ArrayList<Borrower> foundBorrower = borrowerDB.getUniqueNumber(name);
@@ -103,17 +102,6 @@ public class LibraryApplication
 
     public String startupFileRead() {
 
-        public String imsi(String name){
-        ArrayList<Borrower> al = borrowerDB.getUniqueNumber(name);
-        if(al.equals(null)){
-            return "이용자 정보가 없습니다.";
-        }else{
-            Iterator<Borrower> it = al.iterator();
-            while(it.hasNext()){
-                System.out.println(it.next());
-            }
-        }
-        return "이용자 출력 완료";
     }
     
     public String startupFileRead(){
@@ -121,6 +109,9 @@ public class LibraryApplication
         // 파일들을 불러 온 후 각 객체를 생성, DB에 저장한다
 
         systemFileMg.startupFileRead("DataBase\\Borrower.txt", "DataBase\\Book.txt", "DataBase\\Loan.txt");
+
+        systemFileMg.startupFileRead("DataBase\\Borrower.txt","DataBase\\Book.txt","DataBase\\Loan.txt");
+
 
         systemFileMg.startupFileRead("DataBase\\Borrower.txt","DataBase\\Book.txt","DataBase\\Loan.txt");
 
