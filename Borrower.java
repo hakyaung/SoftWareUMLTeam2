@@ -11,6 +11,7 @@ public class Borrower
     private String borrowerUniqueNumber;
     private String email;
     private int loanCount;
+    
     public Borrower(String name, String borrowerUniqueNumber, String email){
         this.name = name;
         this.borrowerUniqueNumber = borrowerUniqueNumber;
