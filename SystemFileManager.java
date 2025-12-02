@@ -78,12 +78,33 @@ public class SystemFileManager
     
     public String saveFileWrite(String borrowerFileSrc, String bookFileSrc, String loanFileSrc){
         try{
-            FileWriter fout = new FileWriter(borrowerFileSrc);
-            int size = borrowerdb.getBorrowerSize();
-            for(int i=0;i<size;i++){
+            FileWriter borrowerWriter = new FileWriter(borrowerFileSrc);
+            FileWriter bookWriter = new FileWriter(bookFileSrc);
+            FileWriter loanWriter = new FileWriter(loanFileSrc);
+            
+            int borrowerSize = borrowerdb.getBorrowerSize();
+            for(int i=0;i<borrowerSize;i++){
                 Borrower b = borrowerdb.getOneBorrwer(i);
-                fout.write(b.getName()+"/"+b.getborrowerUniqueNumber()+"/"+b.getEmail()+"/"+b.getloanCount()+"\n");
+                borrowerWriter.write(b.getName()+"/"+b.getborrowerUniqueNumber()+"/"+b.getEmail()+"/"+b.getloanCount()+"\n");
             }
+            
+            int bookSize = bookdb.getBookSize();
+            for(int i=0;i<bookSize;i++){
+                Book book = bookdb.getOneBook(i);
+                bookWriter.write(book.gettitle()+"/"+book.getauthor()+"/"+book.getbookUniqueNumber()+"\n");
+            }
+            
+            int loanSize = loandb.getLoanSize();
+            for(int i=0;i<loanSize;i++){
+                Loan loan = loandb.getOneLoan(i);
+                Borrower loanBor = loan.getBorrower();
+                Book loanBok = loan.getBook();
+                loanWriter.write(loanBor.getborrowerUniqueNumber()+"/"+loanBok.getbookUniqueNumber()+"\n");
+            }
+            
+            borrowerWriter.close();
+            bookWriter.close();
+            loanWriter.close();
         }catch (IOException e){
             return "파일 경로가 올바르지 않습니다.";
         }

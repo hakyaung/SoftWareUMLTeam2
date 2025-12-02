@@ -1,0 +1,6 @@
+User1/u01/hk100456@naver.com/1
+User2/u02/hk100456@duam.net/1
+User3/u03/hk100456@gmail.com/1
+User4/u04/hk100456@korea.com/0
+User5/u05/hk100456@dnosdnf.com/0
+newUser/u09/hiawehlif@asdfihl/1
