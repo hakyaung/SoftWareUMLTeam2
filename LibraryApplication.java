@@ -99,19 +99,9 @@ public class LibraryApplication
         }
         return "이용자 출력 완료";
     }
-
-    public String startupFileRead() {
-
-    }
-    
     public String startupFileRead(){
 
         // 파일들을 불러 온 후 각 객체를 생성, DB에 저장한다
-
-        systemFileMg.startupFileRead("DataBase\\Borrower.txt", "DataBase\\Book.txt", "DataBase\\Loan.txt");
-
-        systemFileMg.startupFileRead("DataBase\\Borrower.txt","DataBase\\Book.txt","DataBase\\Loan.txt");
-
 
         systemFileMg.startupFileRead("DataBase\\Borrower.txt","DataBase\\Book.txt","DataBase\\Loan.txt");
 
