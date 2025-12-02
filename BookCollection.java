@@ -9,28 +9,37 @@ public class BookCollection
 {
     private TreeSet<String> uniqueNumberSet;
     private HashMap<String, Book> bookDB;
-    
     public BookCollection(){
-        this.uniqueNumberSet = new TreeSet<String>();
-        this.bookDB = new HashMap<String, Book>();
+        uniqueNumberSet = new TreeSet<String>();
+        bookDB = new HashMap<String, Book>();
     }
     
     public void registerToBookDB(Book book){
-        bookDB.put(book.getbookUniqueNumber(),book);
+        bookDB.put(book.getbookUniqueNumber(), book);
+        uniqueNumberSet.add(book.getbookUniqueNumber());
     }
     
-    public Book getOneBook(String bookUniqueNumber){
-        Iterator<Book> it = bookDB.iterator();
-        while(it.hasNext()){
-            Book book = it.next();
-            if(bookUniqueNumber.equals(book.getbookUniqueNumber())){
-                return book;
-            }
+    public int getBookSize(){
+        return uniqueNumberSet.size();
+    }
+    
+    public Book getOneBook(int index) {
+        if(index < 0 || index >= uniqueNumberSet.size())
+        return null;
+        int i = 0;
+        for(String key : uniqueNumberSet) {
+            if(i == index) 
+            return bookDB.get(key);
+            i++;
         }
         return null;
     }
     
+    public Book getOneBook(String bookUniqueNumber){
+        return bookDB.get(bookUniqueNumber);
+    }
+    
     public boolean findBook(String bookUniqueNumber){
-        // bookUniqueNumber에 맞는 Book 객체 있는지 확인하기
+        return bookDB.containsKey(bookUniqueNumber);
     }
 }
