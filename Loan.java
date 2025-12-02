@@ -29,6 +29,6 @@ public class Loan
     }
     
     public String displayLoan(){
-        return borrower.displayBorrower() + " 이/가 " + book.displayBook() + " 을 대출 중";
+        return borrower.getName() + " 이/가 " + book.gettitle() + " 을 대출 중";
     }
 }

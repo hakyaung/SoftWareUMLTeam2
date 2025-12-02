@@ -66,6 +66,10 @@ public class TestMain
                     System.out.println("데이터 불러오기 선택");
                     la.startupFileRead();
                     break;
+                case 9:
+                    System.out.println("데이터 저장하기 선택");
+                    la.saveFileWrite();
+                    break;
                 default:
                     System.out.println("올바른 번호를 입력해주세요");
             }

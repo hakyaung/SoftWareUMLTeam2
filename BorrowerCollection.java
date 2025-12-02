@@ -29,6 +29,10 @@ public class BorrowerCollection
         return false;
     }
     
+    public int getBorrowerSize(){
+        return borrowerDB.size();
+    }
+    
     public Borrower getOneBorrower(String borrowerUniqueNumber){
         // borrowerUniqueNumber를 이용해서 Borrower 객체 찾아 반환하기
         Iterator<Borrower> it = borrowerDB.iterator();
@@ -41,6 +45,10 @@ public class BorrowerCollection
         return null;
     }
     
+    public Borrower getOneBorrwer(int index){
+        return borrowerDB.get(index);
+    }
+    
     public boolean findBorrowerByName(String name) {
         for (Borrower borrower : borrowerDB) {
             if (borrower.getName().equals(name)) {
@@ -49,6 +57,7 @@ public class BorrowerCollection
         }
         return false;
     }
+    
     public ArrayList<Borrower> getUniqueNumber(String name) {
         ArrayList<Borrower> foundBorrowers = new ArrayList<>();
         for (Borrower borrower : borrowerDB) {

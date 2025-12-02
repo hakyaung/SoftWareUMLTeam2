@@ -37,7 +37,7 @@ public class Borrower
     public String getEmail(){
         return email;
     }
-    public int loanCount(){
+    public int getloanCount(){
         return loanCount;
     }
     public void increaseLoanCount(){

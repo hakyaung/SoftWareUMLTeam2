@@ -12,10 +12,10 @@ public class SystemFileManager
     private BookCollection bookdb;
     private LoanCollection loandb;
     
-    public SystemFileManager(){
-        this.borrowerdb = new BorrowerCollection();
-        this.bookdb = new BookCollection();
-        this.loandb = new LoanCollection();
+    public SystemFileManager(BorrowerCollection borrowerdb, BookCollection bookdb, LoanCollection loandb){
+        this.borrowerdb = borrowerdb;
+        this.bookdb = bookdb;
+        this.loandb = loandb;
     }
     
     public String startupFileRead(String borrowerFileSrc, String bookFileSrc, String loanFileSrc){
@@ -74,5 +74,19 @@ public class SystemFileManager
             return "파일 경로가 올바르지 않습니다.";
         }
         return "파일 읽기 성공";
+    }
+    
+    public String saveFileWrite(String borrowerFileSrc, String bookFileSrc, String loanFileSrc){
+        try{
+            FileWriter fout = new FileWriter(borrowerFileSrc);
+            int size = borrowerdb.getBorrowerSize();
+            for(int i=0;i<size;i++){
+                Borrower b = borrowerdb.getOneBorrwer(i);
+                fout.write(b.getName()+"/"+b.getborrowerUniqueNumber()+"/"+b.getEmail()+"/"+b.getloanCount()+"\n");
+            }
+        }catch (IOException e){
+            return "파일 경로가 올바르지 않습니다.";
+        }
+        return "파일 저장 성공";
     }
 }

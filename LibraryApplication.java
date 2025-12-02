@@ -10,7 +10,7 @@ public class LibraryApplication
     private BookCollection bookDB = new BookCollection();
     private BorrowerCollection borrowerDB = new BorrowerCollection();
     private LoanCollection loanDB = new LoanCollection();
-    SystemFileManager systemFileMg = new SystemFileManager();
+    SystemFileManager systemFileMg = new SystemFileManager(borrowerDB, bookDB, loanDB);
     
     public String registerOneBook(String title, String author, String bookUniqueNumber){
         // 책을 등록한다
@@ -63,8 +63,8 @@ public class LibraryApplication
         if (loanDB.checkBookOnLoan(book)) {
             return "오류: 책 " + book.gettitle() + "은 이미 대출 중입니다.";
         }
-        if (borrower.loanCount() > 10) { 
-             return "오류: 이용자 " + borrower.getName() + "님은 대출 한도(10권)를 초과했습니다. (현재: " + borrower.loanCount() + "권)";
+        if (borrower.getloanCount() > 10) { 
+             return "오류: 이용자 " + borrower.getName() + "님은 대출 한도(10권)를 초과했습니다. (현재: " + borrower.getloanCount() + "권)";
         }
         Loan loan = new Loan(borrower, book);
         loanDB.registerToLoan(loan);       
@@ -107,6 +107,7 @@ public class LibraryApplication
 
     public String saveFileWrite() {
         // DB에 있는 객체들을 파일에 저장한다
+        systemFileMg.saveFileWrite("DataBase\\Borrower.txt", "DataBase\\Book.txt", "DataBase\\Loan.txt");
         return "파일 저장 완료";
     }
 
