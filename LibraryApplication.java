@@ -44,26 +44,26 @@ public class LibraryApplication
     }
     
     public String loanOneBook(String bookUniqueNumber, String borrowerUniqueNumber){
-    Book book = bookDB.getOneBook(bookUniqueNumber);
-    Borrower borrower = borrowerDB.getOneBorrower(borrowerUniqueNumber);
+        Book book = bookDB.getOneBook(bookUniqueNumber);
+        Borrower borrower = borrowerDB.getOneBorrower(borrowerUniqueNumber);
     
-    if (book == null) {
-        return "오류: 책 고유번호 " + bookUniqueNumber + "에 해당하는 책을 찾을 수 없습니다.";
-    }
-    if (borrower == null) {
-        return "오류: 이용자 고유번호 " + borrowerUniqueNumber + "에 해당하는 이용자를 찾을 수 없습니다.";
-    }
-    if (loanDB.checkBookOnLoan(book)) {
-        return "오류: 책 " + book.gettitle() + "은 이미 대출 중입니다.";
-    }
-    if (borrower.loanCount() >= 5) { 
-         return "오류: 이용자 " + borrower.getName() + "님은 대출 한도(5권)를 초과했습니다. (현재: " + borrower.loanCount() + "권)";
-    }
-    Loan loan = new Loan(borrower, book);
-    loanDB.registerToLoan(loan);       
-    borrower.increaseLoanCount();    
+        if (book == null) {
+            return "오류: 책 고유번호 " + bookUniqueNumber + "에 해당하는 책을 찾을 수 없습니다.";
+        }
+        if (borrower == null) {
+            return "오류: 이용자 고유번호 " + borrowerUniqueNumber + "에 해당하는 이용자를 찾을 수 없습니다.";
+        }
+        if (loanDB.checkBookOnLoan(book)) {
+            return "오류: 책 " + book.gettitle() + "은 이미 대출 중입니다.";
+        }
+        if (borrower.loanCount() > 10) { 
+             return "오류: 이용자 " + borrower.getName() + "님은 대출 한도(10권)를 초과했습니다. (현재: " + borrower.loanCount() + "권)";
+        }
+        Loan loan = new Loan(borrower, book);
+        loanDB.registerToLoan(loan);
+        borrower.increaseLoanCount();
 
-    return "SUCCESS: 책 " + book.gettitle() + "의 대출이 완료되었습니다. 대출자: " + borrower.getName();
+        return "SUCCESS: 책 " + book.gettitle() + "의 대출이 완료되었습니다. 대출자: " + borrower.getName();
     }
     
     public String returnOneBook(String bookUniqueNumber){
