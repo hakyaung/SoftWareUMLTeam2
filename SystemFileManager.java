@@ -1,7 +1,9 @@
 import java.util.*;
 import java.io.*;
 /**
- * SystemFileManager 클래스의 설명을 작성하세요.
+ * DataBase 폴더안에 Borrower, Book, Loan 텍스트(txt) 파일의 데이터 들을 불러오며,
+ * 작업을 하며 생성된 BorrowerCollection, BookCollecion, LoanCollecion 들의 객체들을
+ * 파일에 저장하는 역할을 합니다.
  *
  * @author (작성자 이름)
  * @version (버전 번호 또는 작성한 날짜)

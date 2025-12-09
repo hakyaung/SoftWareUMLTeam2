@@ -1,6 +1,6 @@
 import java.util.*;
 /**
- * LibraryApplication 클래스의 설명을 작성하세요.
+ * 모든 Use Case들에 대응하는 메소드들을 가지고 있는 클래스입니다.
  *
  * @author (유준석, 김민겸, 정하경)
  * @version (20251126)

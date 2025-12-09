@@ -1,6 +1,8 @@
 import java.util.*;
 /**
- * 책DB 클래스의 설명을 작성하세요.
+ * 책 DB 역할을 하게 되는 클래스로써 Book 객체를 추가, 삭제 또는 검색을 하는 역할을 합니다.
+ * TreeSet<String> 으로 책의 고유번호를 정렬하고 HashMap<String, Book> 으로 Key 값에는 책의 고유번호, Value 값에는
+ * Book 객체를 넣어 책의 고유번호로 Book 객체를 찾을 수 있도록 합니다
  *
  * @author (유준석, 김민겸, 정하경)
  * @version (20251126)
