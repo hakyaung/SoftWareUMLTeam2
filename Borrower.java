@@ -30,7 +30,7 @@ public class Borrower
         return name;
     }
     
-    public String getborrowerUniqueNumber(){
+    public String getBorrowerUniqueNumber(){
         return borrowerUniqueNumber;
     }
     

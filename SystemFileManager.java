@@ -87,7 +87,7 @@ public class SystemFileManager
             int borrowerSize = borrowerdb.getBorrowerSize();
             for(int i=0;i<borrowerSize;i++){
                 Borrower b = borrowerdb.getOneBorrwer(i);
-                borrowerWriter.write(b.getName()+"/"+b.getborrowerUniqueNumber()+"/"+b.getEmail()+"/"+b.getloanCount()+"\n");
+                borrowerWriter.write(b.getName()+"/"+b.getBorrowerUniqueNumber()+"/"+b.getEmail()+"/"+b.getloanCount()+"\n");
             }
             
             int bookSize = bookdb.getBookSize();
@@ -101,7 +101,7 @@ public class SystemFileManager
                 Loan loan = loandb.getOneLoan(i);
                 Borrower loanBor = loan.getBorrower();
                 Book loanBok = loan.getBook();
-                loanWriter.write(loanBor.getborrowerUniqueNumber()+"/"+loanBok.getbookUniqueNumber()+"\n");
+                loanWriter.write(loanBor.getBorrowerUniqueNumber()+"/"+loanBok.getbookUniqueNumber()+"\n");
             }
             
             borrowerWriter.close();
