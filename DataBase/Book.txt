@@ -1,7 +1,9 @@
-책1/저자1/b01
-책2/저자2/b02
-책3/저자3/b03
-책4/저자4/b04
-title2/author2/b09
-title1/author1/b10
-노인과 바다/어니스트 헤밍웨이/b12
+파이썬으로 배우는 인공지능 수학/전태일/B01
+명품 JAVA Programming개정5판/황기태, 김효수/B02
+객체지향 UML/황석형/B03
+명품 HTML5+CSS3+Javascript 웹 프로그래밍/황기태/B04
+용의자 X의 헌신/히가시노 게이고/B05
+최소한의 삼국지/최태성/B06
+book1/author/b01
+book2/author/b02
+book3/author/b03
