@@ -1,10 +1,13 @@
+ 
+
+
 import java.util.*;
 /**
  * Loan 객체들을 LinkedList<Loan>으로 링크를 연결하거나 링크를 끊는 역할을 주로 하고
  * LoanCollection 안에 Borrower, Book, Loan 객체를 찾는 역할을 하는 등 여러 역할도 하게 됩니다.
  *
- * @author (작성자 이름)
- * @version (버전 번호 또는 작성한 날짜)
+ * @author (유준석, 김민겸, 정하경)
+ * @version (2025.12.08)
  */
 public class LoanCollection
 {

@@ -1,9 +1,12 @@
+ 
+
+
 import java.util.*;
 /**
  * 모든 Use Case들에 대응하는 메소드들을 가지고 있는 클래스입니다.
  *
  * @author (유준석, 김민겸, 정하경)
- * @version (20251126)
+ * @version (2025.12.08)
  */
 public class LibraryApplication
 {
@@ -13,42 +16,50 @@ public class LibraryApplication
     SystemFileManager systemFileMg = new SystemFileManager(borrowerDB, bookDB, loanDB);
     
     public String registerOneBook(String title, String author, String bookUniqueNumber){
+        if (bookDB.findBook(bookUniqueNumber)) {
+            return "해당 책 고유번호 [" + bookUniqueNumber + "]는 이미 등록되어 있습니다.";
+        }
         // 책을 등록한다
         Book book = new Book(title, author, bookUniqueNumber);
         bookDB.registerToBookDB(book);
         
-        return "책 " + book + " 등록이 완료되었습니다.";
+        return "책 " + book.displayBook() + " 등록이 완료되었습니다.";
     }
     
     public String registerBorrower(String name, String borrowerUniqueNumber, String email){
+        // 이용자객체를 찾는다.
+        if(borrowerDB.findBorrower(borrowerUniqueNumber)){ 
+            return "오류: 이용자 고유번호 [" + borrowerUniqueNumber + "]는 이미 등록되어 있습니다.";
+        }
         // 이용자를 등록한다
         Borrower borrower = new Borrower(name, borrowerUniqueNumber, email);
         borrowerDB.registerToBorrowerDB(borrower);
-        
-        return "이용자 " + borrower + " 등록이 완료되었습니다.";
+        return "이용자 " + borrower.displayBorrower() + " 등록이 완료되었습니다.";
     }
     
     public String displayBooksForLoan(){
         // 대출가능한 책을 Display 한다
         int index = bookDB.getBookSize();
+        String strSave = "";
         for(int i=0;i<index;i++){
             Book b = bookDB.getOneBook(i);
             if(loanDB.checkBookOnLoan(b) == false){
-                System.out.println(b.displayBook());
+                strSave += b.displayBook() + "\n";
             }
         }
-        return "대출 가능한 책 Display 완료";
+        return "--- 대출 가능한 책 Display ---\n" + strSave + "----------------------------------------\n";
     }
     
     public String displayBooksOnLoan(){
         // 대출 중인 책을 Display 한다
         int size = loanDB.getLoanSize();
+        String strSave = "";
         for(int i=0;i<size;i++){
             Loan lo = loanDB.getOneLoan(i);
             Book book = lo.getBook();
-            System.out.println(book.displayBook());
+            strSave += book.displayBook() + "\n";
         }
-        return "대출 중인 책 Display 완료";
+        return "--- 대출 중인 책 Display ---\n" + strSave + "----------------------------------------\n";
     }
     
     public String loanOneBook(String bookUniqueNumber, String borrowerUniqueNumber){
@@ -63,8 +74,8 @@ public class LibraryApplication
         if (loanDB.checkBookOnLoan(book)) {
             return "오류: 책 " + book.gettitle() + "은 이미 대출 중입니다.";
         }
-        if (borrower.getloanCount() > 10) { 
-             return "오류: 이용자 " + borrower.getName() + "님은 대출 한도(10권)를 초과했습니다. (현재: " + borrower.getloanCount() + "권)";
+        if (borrower.getLoanCount() > 10) { 
+             return "오류: 이용자 " + borrower.getName() + "님은 대출 한도(10권)를 초과했습니다. (현재: " + borrower.getLoanCount() + "권)";
         }
         Loan loan = new Loan(borrower, book);
         loanDB.registerToLoan(loan);       
@@ -103,11 +114,6 @@ public class LibraryApplication
             Iterator<Borrower> it = findBorrowerByName.iterator();
             while (it.hasNext()) {
                 Borrower borrowerInfo = it.next();
-                // System.out.println("---");
-                // System.out.println("이름: " + borrowerInfo.getName());
-                // System.out.println("고유 번호: " + borrowerInfo.getborrowerUniqueNumber());
-                // System.out.println("이메일 (주소): " + borrowerInfo.getEmail());
-                // System.out.println("---");
                 
                 strSave += "---\n" + "이름 : " + borrowerInfo.getName() 
                 + "\n고유번호 : " + borrowerInfo.getBorrowerUniqueNumber() 
@@ -120,16 +126,16 @@ public class LibraryApplication
     public String startupFileRead(){
         // 파일들을 불러 온 후 각 객체를 생성, DB에 저장한다
 
-        systemFileMg.startupFileRead("DataBase\\Borrower.txt", "DataBase\\Book.txt", "DataBase\\Loan.txt");
+        String str = systemFileMg.startupFileRead("DataBase\\Borrower.txt", "DataBase\\Book.txt", "DataBase\\Loan.txt");
 
-        return "파일 읽기 완료";
+        return str;
     }
 
     public String saveFileWrite() {
         // DB에 있는 객체들을 파일에 저장한다
-        systemFileMg.saveFileWrite("DataBase\\Borrower.txt", "DataBase\\Book.txt", "DataBase\\Loan.txt");
+        String str = systemFileMg.saveFileWrite("DataBase\\Borrower.txt", "DataBase\\Book.txt", "DataBase\\Loan.txt");
         
-        return "파일 저장 완료";
+        return str;
     }
 
 }

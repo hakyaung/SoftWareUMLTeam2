@@ -1,9 +1,12 @@
+ 
+
+
 
 /**
- * Borrower 객체를 생성 및 관리하는 클래스입니다.
+ * Book 객체를 생성하는 클래스입니다.
  *
  * @author (유준석, 김민겸, 정하경)
- * @version (20251126)
+ * @version (2025.12.08)
  */
 public class Book
 {
@@ -34,6 +37,6 @@ public class Book
     }
     
     public String displayBook(){
-        return "책 이름 : " + title + " 저자 : " + author + " 책 고유번호 : " + bookuniqueNumber;
+        return "책 이름 : " + title + "\n저자 : " + author + "\n책 고유번호 : " + bookuniqueNumber + "\n";
     }
 }

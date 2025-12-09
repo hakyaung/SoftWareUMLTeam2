@@ -1,9 +1,12 @@
+ 
+
+
 
 /**
  * Borrower와 Book 객체를 이어 새로운 Loan 객체를 생성하는 역할을 하게 됩니다.
  *
  * @author (유준석, 김민겸, 정하경)
- * @version (20251126)
+ * @version (2025.12.08)
  */
 public class Loan
 {

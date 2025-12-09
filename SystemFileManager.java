@@ -1,3 +1,6 @@
+ 
+
+
 import java.util.*;
 import java.io.*;
 /**
@@ -5,8 +8,8 @@ import java.io.*;
  * 작업을 하며 생성된 BorrowerCollection, BookCollecion, LoanCollecion 들의 객체들을
  * 파일에 저장하는 역할을 합니다.
  *
- * @author (작성자 이름)
- * @version (버전 번호 또는 작성한 날짜)
+ * @author (정하경)
+ * @version (20251208)
  */
 public class SystemFileManager
 {
@@ -16,12 +19,13 @@ public class SystemFileManager
     
     public SystemFileManager(BorrowerCollection borrowerdb, BookCollection bookdb, LoanCollection loandb){
         this.borrowerdb = borrowerdb;
-        this.bookdb = bookdb;
+        this.bookdb = bookdb;  
         this.loandb = loandb;
     }
     
     public String startupFileRead(String borrowerFileSrc, String bookFileSrc, String loanFileSrc){
         String str = "";
+        String strSave = "";
         
         try{
             FileReader borrowerSrc = new FileReader(borrowerFileSrc);
@@ -40,7 +44,7 @@ public class SystemFileManager
                 int loanCount = Integer.valueOf(stz.nextToken());
                 Borrower borrower = new Borrower(name, borrowerUniqueNumber, email, loanCount);
                 borrowerdb.registerToBorrowerDB(borrower);
-                System.out.println(borrower.displayBorrower());
+                strSave += borrower.displayBorrower() + "\n";
             }
             
             while(bookScanner.hasNext()){
@@ -51,7 +55,7 @@ public class SystemFileManager
                 String bookUniqueNumber = stz.nextToken();
                 Book book = new Book(title, author, bookUniqueNumber);
                 bookdb.registerToBookDB(book);
-                System.out.println(book.displayBook());
+                strSave += book.displayBook() + "\n";
             }
             
             while(loanScanner.hasNext()){
@@ -63,7 +67,7 @@ public class SystemFileManager
                 Book book = bookdb.getOneBook(bookUniqueNumber);
                 Loan loan = new Loan(borrower, book);
                 loandb.registerToLoan(loan);
-                System.out.println(loan.displayLoan());
+                strSave += loan.displayLoan() + "\n";
             }
             
             borrowerSrc.close();
@@ -75,7 +79,7 @@ public class SystemFileManager
         }catch(IOException e){
             return "파일 경로가 올바르지 않습니다.";
         }
-        return "파일 읽기 성공";
+        return "---- 불러온 파일 --- \n" + strSave + "---------------------------\n";
     }
     
     public String saveFileWrite(String borrowerFileSrc, String bookFileSrc, String loanFileSrc){
@@ -87,7 +91,7 @@ public class SystemFileManager
             int borrowerSize = borrowerdb.getBorrowerSize();
             for(int i=0;i<borrowerSize;i++){
                 Borrower b = borrowerdb.getOneBorrwer(i);
-                borrowerWriter.write(b.getName()+"/"+b.getBorrowerUniqueNumber()+"/"+b.getEmail()+"/"+b.getloanCount()+"\n");
+                borrowerWriter.write(b.getName()+"/"+b.getBorrowerUniqueNumber()+"/"+b.getEmail()+"/"+b.getLoanCount()+"\n");
             }
             
             int bookSize = bookdb.getBookSize();
